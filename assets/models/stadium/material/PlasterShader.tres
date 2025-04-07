@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://td8bshciywqc"]
+
+[ext_resource type="Texture2D" uid="uid://b86ykumiqybdp" path="res://assets/models/stadium/FootballStadiumADay_PlasterShader_baseColor.png" id="1_18ppg"]
+
+[resource]
+resource_name = "PlasterShader"
+depth_draw_mode = 2
+albedo_texture = ExtResource("1_18ppg")
+roughness = 0.6

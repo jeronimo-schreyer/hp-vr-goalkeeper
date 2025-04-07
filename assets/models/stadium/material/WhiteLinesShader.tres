@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://db125cfb1l20f"]
+
+[resource]
+resource_name = "WhiteLinesShader"
+albedo_color = Color(0.735357, 0.735357, 0.735357, 1)
+roughness = 0.894263

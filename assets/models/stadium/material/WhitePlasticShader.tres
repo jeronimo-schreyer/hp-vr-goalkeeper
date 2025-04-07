@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://4aum31ypqwh2"]
+
+[resource]
+resource_name = "WhitePlasticShader"
+albedo_color = Color(0.991331, 0.973684, 0.955603, 1)
+roughness = 0.6

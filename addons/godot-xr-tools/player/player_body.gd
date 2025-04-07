@@ -197,9 +197,11 @@ func _ready():
 	set_as_top_level(true)
 
 	# Create our collision shape, height will be updated later
-	var capsule = CapsuleShape3D.new()
-	capsule.radius = player_radius
-	capsule.height = 1.4
+	#var capsule = CapsuleShape3D.new()
+	#capsule.radius = player_radius
+	#capsule.height = 1.4
+	var capsule = BoxShape3D.new()
+	capsule.size = Vector3(player_radius, 1.4, player_radius)
 	_collision_node = CollisionShape3D.new()
 	_collision_node.shape = capsule
 	_collision_node.transform.origin = Vector3(0.0, 0.8, 0.0)
@@ -245,7 +247,8 @@ func set_player_radius(new_value: float) -> void:
 
 func _update_player_radius() -> void:
 	if _collision_node and _collision_node.shape:
-		_collision_node.shape.radius = player_radius
+		#_collision_node.shape.radius = player_radius
+		_collision_node.shape.size = Vector3(player_radius, 1.4, player_radius)
 
 func set_physics(new_value: XRToolsGroundPhysicsSettings) -> void:
 	# Save the property
@@ -559,7 +562,8 @@ func _update_body_under_camera(delta : float):
 	player_height = max(player_height, player_radius)
 
 	# Test if the player is trying to get taller
-	var current_height : float = _collision_node.shape.height
+	#var current_height : float = _collision_node.shape.height
+	var current_height : float = _collision_node.shape.size.y
 	if player_height > current_height:
 		# Calculate how tall we would like to get this frame
 		var target_height : float = min(
@@ -592,8 +596,11 @@ func _update_body_under_camera(delta : float):
 			current_height)
 
 	# Adjust the collision shape to match the player geometry
-	_collision_node.shape.radius = player_radius
-	_collision_node.shape.height = player_height
+	#_collision_node.shape.radius = player_radius
+	#_collision_node.shape.height = player_height
+	_collision_node.shape.size.x = player_radius
+	_collision_node.shape.size.z = player_radius
+	_collision_node.shape.size.y = player_height
 	_collision_node.transform.origin.y = (player_height / 2.0)
 
 	# Center the kinematic body on the ground under the camera

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b0o85uuv26r4"]
+
+[resource]
+resource_name = "LightShader"
+depth_draw_mode = 2
+roughness = 0.6
+emission_enabled = true
+emission = Color(1, 1, 1, 1)

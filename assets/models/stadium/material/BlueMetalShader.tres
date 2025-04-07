@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://blvlbcmmaop8w"]
+
+[resource]
+resource_name = "BlueMetalShader"
+depth_draw_mode = 2
+albedo_color = Color(0, 0.588213, 0.687217, 1)
+roughness = 0.2

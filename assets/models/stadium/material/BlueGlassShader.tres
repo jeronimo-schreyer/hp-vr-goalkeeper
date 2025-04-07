@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bjqkpjon3tt4e"]
+
+[resource]
+resource_name = "BlueGlassShader"
+transparency = 4
+depth_draw_mode = 2
+albedo_color = Color(0.294589, 0.505969, 0.52632, 0.58)
+roughness = 0.0

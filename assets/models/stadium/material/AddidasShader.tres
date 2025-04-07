@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d3f6nhey25e65"]
+
+[resource]
+resource_name = "AddidasShader"
+depth_draw_mode = 2
+roughness = 0.94054

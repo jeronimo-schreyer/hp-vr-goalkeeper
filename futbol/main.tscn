@@ -1,0 +1,74 @@
+[gd_scene load_steps=14 format=3 uid="uid://bnkyd8veoyqmj"]
+
+[ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_qai2t"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_f3os1"]
+[ext_resource type="Script" uid="uid://b6q0t188eukhf" path="res://futbol/main.gd" id="2_hdqm0"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="3_aswd7"]
+[ext_resource type="Material" uid="uid://ccdofvku4c7w3" path="res://assets/prototype_materials/stone_grey.tres" id="4_w52ir"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_14uj0"]
+
+[sub_resource type="Environment" id="Environment_82lnw"]
+ambient_light_source = 1
+reflected_light_source = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_wt025"]
+material = ExtResource("4_w52ir")
+size = Vector2(12, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uh2bx"]
+size = Vector3(12, 1, 12)
+
+[sub_resource type="QuadMesh" id="QuadMesh_4t0bc"]
+resource_local_to_scene = true
+size = Vector2(3, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ydy8t"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydy8t"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_ydy8t")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4p312"]
+resource_local_to_scene = true
+size = Vector3(3, 2, 0.02)
+
+[node name="SceneBase" instance=ExtResource("1_qai2t")]
+script = ExtResource("2_hdqm0")
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("2_f3os1")]
+
+[node name="RightHand" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("3_aswd7")]
+
+[node name="World" type="Node3D" parent="." index="1"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" index="0"]
+environment = SubResource("Environment_82lnw")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="World" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+omni_range = 12.0
+
+[node name="Ground" type="StaticBody3D" parent="World" index="2"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_wt025")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_uh2bx")
+
+[node name="Board" parent="." index="2" instance=ExtResource("5_14uj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -6)
+
+[node name="Screen" parent="Board" index="1"]
+mesh = SubResource("QuadMesh_4t0bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_ydy8t")
+
+[node name="CollisionShape3D" parent="Board/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_4p312")
+
+[editable path="Board"]

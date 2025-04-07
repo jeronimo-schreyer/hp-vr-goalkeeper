@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bjmqnjrnak63n"]
+
+[ext_resource type="Texture2D" uid="uid://dey6dcgb1ds1m" path="res://assets/models/stadium/FootballStadiumADay_ConcreteShader_baseColor.png" id="1_r6tsw"]
+
+[resource]
+resource_name = "ConcreteShader"
+depth_draw_mode = 2
+albedo_color = Color(0.732463, 0.732463, 0.732463, 1)
+albedo_texture = ExtResource("1_r6tsw")

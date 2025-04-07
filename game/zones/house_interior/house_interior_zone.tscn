@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://d1lgdwh7pv220" path="res://game/zones/house_interior/house_interior_zone_info.tres" id="3_x42ux"]
 [ext_resource type="Material" uid="uid://csepeix2yvih" path="res://assets/prototype_materials/grass.tres" id="4_8oeg0"]
 [ext_resource type="Material" uid="uid://c7prktlpm7tmm" path="res://assets/prototype_materials/forest.tres" id="5_60arm"]
-[ext_resource type="Script" path="res://components/helpers/scatter.gd" id="6_sr5e8"]
+[ext_resource type="Script" uid="uid://ji05a7txq0g1" path="res://components/helpers/scatter.gd" id="6_sr5e8"]
 [ext_resource type="PackedScene" uid="uid://vm423o6hdlya" path="res://components/helpers/zone_switch_area.tscn" id="7_jpwgk"]
 [ext_resource type="PackedScene" uid="uid://chch4r7wddwdj" path="res://game/objects/storage/storage_box.tscn" id="11_q611u"]
 [ext_resource type="PackedScene" uid="uid://dm2e4qfiy0v0a" path="res://components/helpers/zone_save_point.tscn" id="11_vm0jr"]

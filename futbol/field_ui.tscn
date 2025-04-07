@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://w0pot2ev0fbp"]
+
+[ext_resource type="Script" uid="uid://dbeq7hpirmyfo" path="res://futbol/field_ui.gd" id="1_b5sf5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hsrt1"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b5sf5")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Tiempo de juego"
+label_settings = SubResource("LabelSettings_hsrt1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "0.00"
+label_settings = SubResource("LabelSettings_hsrt1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Pelotas atajadas"
+label_settings = SubResource("LabelSettings_hsrt1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "0"
+label_settings = SubResource("LabelSettings_hsrt1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Pelotas pateadas"
+label_settings = SubResource("LabelSettings_hsrt1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "0"
+label_settings = SubResource("LabelSettings_hsrt1")
+horizontal_alignment = 1
+vertical_alignment = 1

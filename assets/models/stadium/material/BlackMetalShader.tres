@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://drqo5l5uwjhhp"]
+
+[resource]
+resource_name = "BlackMetalShader"
+depth_draw_mode = 2
+albedo_color = Color(0.226648, 0.226648, 0.226648, 1)
+roughness = 0.6

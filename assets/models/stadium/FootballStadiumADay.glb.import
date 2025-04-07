@@ -1,0 +1,140 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cbuxwx2f7bev5"
+path="res://.godot/imported/FootballStadiumADay.glb-1459bd8fb83e69c61f48c31b03d02879.scn"
+
+[deps]
+
+source_file="res://assets/models/stadium/FootballStadiumADay.glb"
+dest_files=["res://.godot/imported/FootballStadiumADay.glb-1459bd8fb83e69c61f48c31b03d02879.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"AddidasShader": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stadium/material/AddidasShader.tres"
+},
+"BlackMetalShader": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stadium/material/BlackMetalShader.tres"
+},
+"BlueGlassShader": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stadium/material/BlueGlassShader.tres"
+},
+"BlueMetalShader": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stadium/material/BlueMetalShader.tres"
+},
+"BluePlasticShader": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/BluePlasticShader.tres"
+},
+"BluePlasticShader1": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/BluePlasticShader1.tres"
+},
+"Concrete01": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/Concrete01.tres"
+},
+"Concrete02": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/Concrete02.tres"
+},
+"ConcreteShader": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/ConcreteShader.tres"
+},
+"DarkCordShader": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/DarkCordShader.tres"
+},
+"FencingShader": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/FencingShader.tres"
+},
+"FlagShader": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stadium/material/FlagShader.tres"
+},
+"FootballPaternShader": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stadium/material/FootballPaternShader.tres"
+},
+"FootballSub": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stadium/material/FootballSub.tres"
+},
+"GrassShader": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stadium/material/GrassShader.tres"
+},
+"LightShader": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stadium/material/LightShader.tres"
+},
+"PaintedWhiteMetalShader": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/PaintedWhiteMetalShader.tres"
+},
+"PlasterShader": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stadium/material/PlasterShader.tres"
+},
+"SeatBackShader": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/SeatBackShader.tres"
+},
+"SeatFrontShader": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/SeatFrontShader.tres"
+},
+"SignShader": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/SignShader.tres"
+},
+"SteelShader": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/SteelShader.tres"
+},
+"TranslucentGlassShader": {
+"use_external/enabled": false,
+"use_external/path": "res://assets/models/stadium/material/TranslucentGlassShader.tres"
+},
+"WhiteLinesShader": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stadium/material/WhiteLinesShader.tres"
+},
+"WhitePlasticShader": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/stadium/material/WhitePlasticShader.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

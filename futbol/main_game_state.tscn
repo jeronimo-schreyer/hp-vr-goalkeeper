@@ -1,0 +1,31 @@
+[gd_scene load_steps=10 format=3 uid="uid://byn32blueaaw6"]
+
+[ext_resource type="Script" uid="uid://b0iuv4m1pxxph" path="res://game/game_state.gd" id="1_j2kjn"]
+[ext_resource type="Script" uid="uid://bjmftoaiexphp" path="res://components/persistent/persistent_zone_info.gd" id="2_tv8mu"]
+[ext_resource type="Script" uid="uid://blinp57tmb60d" path="res://components/persistent/persistent_zone_database.gd" id="3_1tiya"]
+[ext_resource type="Script" uid="uid://ctdqx1io38kua" path="res://components/persistent/persistent_item_type.gd" id="4_kxt1w"]
+[ext_resource type="Script" uid="uid://cgcjgetjfbfu" path="res://components/persistent/persistent_item_database.gd" id="5_4eq6p"]
+
+[sub_resource type="Resource" id="Resource_g7k1f"]
+script = ExtResource("2_tv8mu")
+zone_id = "field"
+instance_scene = "res://futbol/field_zone.tscn"
+
+[sub_resource type="Resource" id="Resource_05b31"]
+script = ExtResource("2_tv8mu")
+zone_id = "field"
+instance_scene = "res://futbol/field_zone.tscn"
+
+[sub_resource type="Resource" id="Resource_wwjrw"]
+script = ExtResource("3_1tiya")
+zones = Array[ExtResource("2_tv8mu")]([SubResource("Resource_05b31")])
+
+[sub_resource type="Resource" id="Resource_18iiw"]
+script = ExtResource("5_4eq6p")
+items = Array[ExtResource("4_kxt1w")]([])
+
+[node name="MainGameState" type="Node"]
+script = ExtResource("1_j2kjn")
+starting_zone = SubResource("Resource_g7k1f")
+zone_database = SubResource("Resource_wwjrw")
+item_database = SubResource("Resource_18iiw")

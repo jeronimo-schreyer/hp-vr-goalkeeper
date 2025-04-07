@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://c47r4r20ebwff"]
+
+[ext_resource type="Texture2D" uid="uid://cn0l65isoul66" path="res://assets/models/stadium/FootballStadiumADay_FlagShader_baseColor.png" id="1_7phdv"]
+[ext_resource type="Texture2D" uid="uid://baqjj12l7j1ob" path="res://assets/models/stadium/FootballStadiumADay_FlagShader_metallicRoughness.png" id="2_kv4o0"]
+[ext_resource type="Texture2D" uid="uid://5vxy2kyh5nxq" path="res://assets/models/stadium/FootballStadiumADay_FlagShader_normal.png" id="3_yk6us"]
+
+[resource]
+resource_name = "FlagShader"
+depth_draw_mode = 2
+albedo_texture = ExtResource("1_7phdv")
+metallic_texture = ExtResource("2_kv4o0")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_kv4o0")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_yk6us")
