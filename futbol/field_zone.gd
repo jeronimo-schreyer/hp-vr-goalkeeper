@@ -3,10 +3,12 @@ extends PersistentZone
 @export var start_event: XRToolsRumbleEvent
 @export var ball_event: XRToolsRumbleEvent
 
+
 func scene_visible(user_data = null):
 	$BallSpawn/Cooldown.start()
 	$Whistle.play()
 	$Viewport2Din3D/Viewport/UI.running = true
+	$Viewport2Din3D/Viewport/Control.running = true
 	XRToolsRumbleManager.add(self, start_event)
 
 
@@ -22,7 +24,8 @@ func _on_gol_body_entered(body: Node3D) -> void:
 	if body is XRToolsPickable:
 		$FootballStadiumADay/Gol/AudioStreamPlayer.play()
 		body.get_node("Timer").stop()
-
+		var goles = int($Viewport2Din3D/Viewport/Control/GridContainer/Label.text) + 1
+		$Viewport2Din3D/Viewport/Control/GridContainer/Label.text = str(goles)
 		check_if_end_game()
 
 
@@ -47,3 +50,4 @@ func check_if_end_game():
 		$Whistle.play()
 		$EndGameCrowd.play()
 		$Viewport2Din3D/Viewport/UI.running = false
+		$Viewport2Din3D/Viewport/Control.running = false

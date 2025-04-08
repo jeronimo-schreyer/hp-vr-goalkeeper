@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cvb2rembywx1i"]
+[gd_scene load_steps=54 format=3 uid="uid://cvb2rembywx1i"]
 
 [ext_resource type="PackedScene" uid="uid://di1bu0tceg332" path="res://components/persistent/persistent_zone.tscn" id="1_0rr2j"]
 [ext_resource type="Script" uid="uid://won2d7a713d3" path="res://futbol/field_zone.gd" id="2_cjy46"]
@@ -20,10 +20,12 @@
 [ext_resource type="AudioStream" uid="uid://cd57uklrjo584" path="res://assets/sounds/sfx/gol.wav" id="16_of7pg"]
 [ext_resource type="AudioStream" uid="uid://qwjmg52bp552" path="res://assets/sounds/sfx/Crowd Loop 02.wav" id="17_ak2lq"]
 [ext_resource type="AudioStream" uid="uid://dq8gvg42hcyev" path="res://assets/sounds/sfx/Whistle 1_1.wav" id="18_ak2lq"]
+[ext_resource type="PackedScene" uid="uid://dtvh5wwwrtyit" path="res://futbol/field_ui2.tscn" id="19_6muwv"]
 [ext_resource type="AudioStream" uid="uid://32dkwuxvb3y2" path="res://assets/sounds/sfx/wind_outside_field_low_loop.wav" id="19_oohla"]
 [ext_resource type="AudioStream" uid="uid://chp6u37w8smv4" path="res://assets/sounds/sfx/Soccer Ball Catch 03.wav" id="21_of7pg"]
 [ext_resource type="AudioStream" uid="uid://dr2ew7x6xjgcd" path="res://assets/sounds/sfx/Cheer 05.wav" id="23_4d5j6"]
 [ext_resource type="Material" uid="uid://5tfugh0mje4j" path="res://futbol/field_zone.tres" id="24_fl0et"]
+[ext_resource type="PackedScene" uid="uid://ctgmy4dgpdsv7" path="res://futbol/shader_cache.tscn" id="25_tbmkn"]
 
 [sub_resource type="Resource" id="Resource_v1rgo"]
 script = ExtResource("7_oohla")
@@ -155,16 +157,16 @@ void sky() {
     float base_pole_blend_factor = abs(EYEDIR.y);  // Original blend factor (circular)
     float noise_pole_blend = blended_noise_texture.r * pole_blend_shape;
     float pole_blend_factor = smoothstep(1.0 - pole_blend_strength, 1.0, base_pole_blend_factor + noise_pole_blend);
-    
+
     // Horizon blending - detect when we're near the horizon
     float horizon_distance = abs(EYEDIR.y);  // This will be close to 0 near the horizon
     float horizon_factor = 1.0 - smoothstep(0.0, horizon_blend_width, horizon_distance);
     float noise_horizon_blend = blended_noise_texture.g * horizon_blend_shape;
     float horizon_blend_factor = smoothstep(1.0 - horizon_blend_strength, 1.0, horizon_factor + noise_horizon_blend);
-    
+
     // Combine both blend factors (poles and horizon)
     float combined_blend_factor = max(pole_blend_factor, horizon_blend_factor);
-    
+
     // Blend noise with brightness value based on the combined factor
     vec3 blended_noise = mix(blended_noise_texture.rgb, vec3(pole_blend_brightness), pole_blend_factor);
     blended_noise = mix(blended_noise, vec3(horizon_blend_brightness), horizon_blend_factor);
@@ -275,15 +277,15 @@ size = Vector3(7.03882, 2.37927, 1.57867)
 
 [sub_resource type="QuadMesh" id="QuadMesh_5w3tt"]
 resource_local_to_scene = true
-size = Vector2(3, 2)
+size = Vector2(9, 6)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_v1rgo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6muwv"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fl0et"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6muwv"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_v1rgo")
+albedo_texture = SubResource("ViewportTexture_6muwv")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j6qmu"]
@@ -398,8 +400,10 @@ size = Vector3(7.22, 3.45, 0.1)
 [node name="BallSpawn" type="Node3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.931)
 script = ExtResource("9_7b2ym")
-linear_velocity = Vector3(0, 10, 7)
 ball_scene = ExtResource("12_yvnte")
+linear_velocity = Vector3(0, 8, 10)
+min_rand_range = 1.2
+max_rand_range = 1.8
 
 [node name="Target" type="Marker3D" parent="BallSpawn" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
@@ -467,20 +471,24 @@ stream = ExtResource("16_of7pg")
 volume_db = -3.0
 
 [node name="Viewport2Din3D" parent="." index="5" instance=ExtResource("14_s4m5l")]
-transform = Transform3D(0.843823, 0, 0.536622, 0, 1, 0, -0.536622, 0, 0.843823, -5.97, 2, -9.178)
-viewport_size = Vector2(576, 324)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -16.465)
+viewport_size = Vector2(1152, 648)
+input_keyboard = false
 
 [node name="Viewport" parent="Viewport2Din3D" index="0"]
-size = Vector2i(576, 324)
+size = Vector2i(1152, 648)
 
 [node name="UI" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("15_s4m5l")]
+visible = false
+
+[node name="Control" parent="Viewport2Din3D/Viewport" index="1" instance=ExtResource("19_6muwv")]
 
 [node name="Screen" parent="Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_5w3tt")
-surface_material_override/0 = SubResource("StandardMaterial3D_fl0et")
+surface_material_override/0 = SubResource("StandardMaterial3D_6muwv")
 
 [node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
-viewport_size = Vector2(576, 324)
+viewport_size = Vector2(1152, 648)
 
 [node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_j6qmu")
@@ -517,6 +525,15 @@ transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_fl0et")
 draw_pass_1 = SubResource("QuadMesh_6muwv")
 
+[node name="ShaderCache" parent="." index="12" instance=ExtResource("25_tbmkn")]
+visible = false
+
+[node name="Football02_AddidasShader_0" parent="ShaderCache" index="0"]
+surface_material_override/0 = null
+
+[node name="Football02_FootballPaternShader_0" parent="ShaderCache" index="1"]
+surface_material_override/0 = null
+
 [connection signal="body_entered" from="XROrigin3D/LeftHand/Area3D" to="." method="_on_area_3d_body_entered" binds= [NodePath("..")]]
 [connection signal="body_entered" from="XROrigin3D/RightHand/Area3D" to="." method="_on_area_3d_body_entered" binds= ["right"]]
 [connection signal="ball_spawned" from="BallSpawn" to="." method="_on_ball_spawned"]
@@ -526,3 +543,5 @@ draw_pass_1 = SubResource("QuadMesh_6muwv")
 [editable path="FootballStadiumADay"]
 [editable path="Viewport2Din3D"]
 [editable path="Viewport2Din3D/Viewport/UI"]
+[editable path="Viewport2Din3D/Viewport/Control"]
+[editable path="ShaderCache"]

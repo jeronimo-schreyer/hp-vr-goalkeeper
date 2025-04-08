@@ -5,6 +5,10 @@ signal cooldown_finished
 var countdown = 2
 
 
+func _ready() -> void:
+	visible = true
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	countdown = countdown - 1

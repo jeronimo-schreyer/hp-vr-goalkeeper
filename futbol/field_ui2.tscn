@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtvh5wwwrtyit"]
+
+[ext_resource type="Script" uid="uid://dbeq7hpirmyfo" path="res://futbol/field_ui.gd" id="1_3t0nw"]
+[ext_resource type="Texture2D" uid="uid://ctafv0h6b5s17" path="res://futbol/Cartel Juego (1).png" id="2_3t0nw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3t0nw"]
+font_size = 70
+shadow_size = 0
+
+[node name="Control" type="AspectRatioContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 4.6323
+script = ExtResource("1_3t0nw")
+metadata/_edit_horizontal_guides_ = [347.0, 294.0]
+
+[node name="CartelJuego" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_3t0nw")
+
+[node name="GridContainer" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.337674
+anchor_top = 0.112591
+anchor_right = 0.501736
+anchor_bottom = 0.856493
+text = "0.00"
+label_settings = SubResource("LabelSettings_3t0nw")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.804688
+anchor_top = 0.120633
+anchor_right = 0.927083
+anchor_bottom = 0.840409
+text = "0"
+label_settings = SubResource("LabelSettings_3t0nw")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Separator" type="ColorRect" parent="GridContainer"]
+layout_mode = 0
+anchor_left = 0.546007
+anchor_top = 0.289519
+anchor_right = 0.550347
+anchor_bottom = 0.691628
+color = Color(1, 1, 1, 0.9)
+metadata/_edit_use_anchors_ = true
