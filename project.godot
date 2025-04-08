@@ -32,6 +32,7 @@ ball=""
 [godot_xr_tools]
 
 input/default_snap_turning=false
+player/standard_height=1.5
 
 [gui]
 
@@ -55,17 +56,20 @@ common/drop_mouse_on_gui_input_disabled=true
 [physics]
 
 3d/solver/contact_max_allowed_penetration=0.001
-common/physics_interpolation=true
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_3d=1
+anti_aliasing/screen_space_roughness_limiter/enabled=false
 environment/defaults/default_environment="res://default_env.tres"
 
 [xr]
 
 openxr/enabled=true
 openxr/default_action_map="uid://dsy7663pl3py3"
+openxr/foveation_level=3
+openxr/foveation_dynamic=true
 shaders/enabled=true

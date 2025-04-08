@@ -22,6 +22,9 @@ func _ready():
 	xr_started.connect(_on_xr_started)
 	xr_ended.connect(_on_xr_ended)
 
+	if OS.get_name() == "Android":
+		get_viewport().vrs_mode = Viewport.VRS_XR
+
 
 # This method is called when a scene is loaded
 func _on_scene_loaded(_scene : XRToolsSceneBase, _user_data : Variant) -> void:
