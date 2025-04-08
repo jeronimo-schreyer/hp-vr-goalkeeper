@@ -10,6 +10,10 @@ signal ball_spawned(timer)
 @export_range(0, 90, 0.1) var max_rand_range : float
 
 
+func _ready() -> void:
+	randomize()
+
+
 func _on_cooldown_timeout():
 	var new_ball = ball_scene.instantiate()
 	add_child(new_ball)
@@ -17,7 +21,7 @@ func _on_cooldown_timeout():
 	var vel = linear_velocity
 	vel.x = randf_range(min_rand_range, max_rand_range)
 
-	if randi() % 1 == 0:
+	if randi() % 2 == 1:
 		vel.x = -vel.x
 	new_ball.linear_velocity = vel
 
