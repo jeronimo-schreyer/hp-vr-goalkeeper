@@ -4,8 +4,10 @@ extends Node3D
 signal ball_spawned(timer)
 
 
-@export var linear_velocity : Vector3
 @export var ball_scene : PackedScene
+@export var linear_velocity : Vector3
+@export_range(0, 90, 0.1) var min_rand_range : float
+@export_range(0, 90, 0.1) var max_rand_range : float
 
 
 func _on_cooldown_timeout():
@@ -13,7 +15,10 @@ func _on_cooldown_timeout():
 	add_child(new_ball)
 
 	var vel = linear_velocity
-	vel.x = randf_range(-1.0, 1.0)
+	vel.x = randf_range(min_rand_range, max_rand_range)
+
+	if randi() % 1 == 0:
+		vel.x = -vel.x
 	new_ball.linear_velocity = vel
 
 	$AudioStreamPlayer.play()
